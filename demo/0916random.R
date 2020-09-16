@@ -11,7 +11,6 @@ randomA = function (m,a,b,c,raw1,raw2){
     }
     return (point/m)
 }
-
 point = randomA(1000000, 2, 4, 4, 1, 64 )
-print(point)
-hist(point)
+# print(point)
+hist(point) # 画图
