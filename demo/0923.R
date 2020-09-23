@@ -4,7 +4,6 @@
 # Created on: 2020/9/23
 
 
-
 # 4点分布抽样
 chouqv = function(n) {
   x = c()
@@ -22,9 +21,9 @@ chouqv = function(n) {
   }
   return(x)
 }
+
 num = chouqv(1000)
 table(num) / 1000
-
 
 
 # 随机排列的生成(10数)
@@ -33,11 +32,11 @@ b = c()
 for (i in 1:10) {
   x = floor(length(a) * runif(1)) + 1
   b[i] = a[x]
-  a=a[-x]
+  a = a[-x]
 }
 b
 ## sample法
-c=sample(1:10,10,replace=F,prob=rep(1/10,10))
+c = sample(1:10, 10, replace = F, prob = rep(1 / 10, 10))
 c
 
 
