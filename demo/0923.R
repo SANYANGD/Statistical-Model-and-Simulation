@@ -40,3 +40,36 @@ c = sample(1:10, 10, replace = F, prob = rep(1 / 10, 10))
 c
 
 
+# 几何随机变量抽样
+toushaizi = function() {
+  shaizi = sample(1:6, 100, replace = T, prob = rep(1 / 6, 6))
+  a = c(1:6)
+  for (i in 1:100) {
+    if (shaizi[i] == 1) {
+      a = a[-1]
+    }else if (shaizi[i] == 2) {
+      a = a[-2]
+    }else if (shaizi[i] == 3) {
+      a = a[-3]
+    }else if (shaizi[i] == 4) {
+      a = a[-4]
+    }else if (shaizi[i] == 5) {
+      a = a[-5]
+    }else if (shaizi[i] == 6) {
+      a = a[-6]
+    }
+    if (length(a) == 0) {
+      return(i)
+    }
+  }
+}
+tsz = c()
+for (i in 1:10000){
+  tsz[i] = toushaizi()
+}
+hist(tsz)
+tsz_mean = mean(tsz)
+tsz_mean
+tsz_var = var(tsz)
+tsz_var
+
