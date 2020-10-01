@@ -18,7 +18,7 @@ u2 = runif(100000)
 y = (-2) * log(u1) + 5
 c = 5 / 3
 accept = y[u2 <= (y * exp(-y) / (exp(-5) * 6)) / (c * (1 / 2) * exp(-(y - 5) / 2))]
-hist(accept, breaks = seq(0, 100, 0.02), xlim = c(5, 15), freq = F)
+hist(accept, breaks = seq(0, 100, 0.01), xlim = c(5, 15), freq = F)
 par(new = T)
 curve(x * exp(-x) / (exp(-5) * 6), xlim = c(5, 15), col = "green")
 par(new = T)
