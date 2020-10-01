@@ -13,9 +13,15 @@
 
 
 #
-curve((exp(-x) * x) / 6 * (exp(-5)), xlim = c(5, 10), col = "red")
+u1 = runif(100000)
+u2 = runif(100000)
+y = (-2) * log(u1) + 5
+c = 5 / 3
+accept = y[u2 <= (y * exp(-y) / (exp(-5) * 6)) / (c * (1 / 2) * exp(-(y - 5) / 2))]
+hist(accept, breaks = seq(0, 100, 0.02), xlim = c(5, 15), freq = F)
 par(new = T)
-curve(2 * exp(-2 * x), xlim = c(5, 10), col = "green")
+curve(x * exp(-x) / (exp(-5) * 6), xlim = c(5, 15), col = "green")
 par(new = T)
+curve((1 / 2) * exp(-(x - 5) / 2), xlim = c(5, 15), col = "red")
 
 
