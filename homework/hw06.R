@@ -12,8 +12,9 @@ accept=u1[u2<=u1^0]
 plot(u1,u1^0)
 par(new=T)
 hist(accept,breaks = seq(0,1,0.002),freq = F)
-c = length(accept)/(2*length(u1))
+c = length(accept)/length(u1)
 c
+
 
 # test05
 # f(x)=30*(x^2-2*x^3+x^4) 0=<x=<1

@@ -17,3 +17,4 @@ par(new=T)
 hist(accept,breaks = seq(0,1,0.002),freq = F)
 
 
+
