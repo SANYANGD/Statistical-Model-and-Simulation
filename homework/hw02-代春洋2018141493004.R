@@ -1,9 +1,7 @@
-# Title     : TODO
+# Title     : 双服务员的排队系统
 # Objective : TODO
 # Created by: 代春洋2018141493004
 # Created on: 2020/11/4
-
-# 双服务员的排队系统
 
 #ts <- function(lambda, g, s) {
 #  t <- s
