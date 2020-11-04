@@ -3,6 +3,8 @@
 # Created by: SCDX
 # Created on: 2020/11/4
 
+# https://zhuanlan.zhihu.com/p/29007545
+
 #ts <- function(lambda, g, s) {
 #  t <- s
 #  u <- runif(1)
@@ -26,9 +28,9 @@ ts <- function(lamda, g, s) {
   #lamda表示g(t)的最大值
   #该子程序用来产生时刻s后第一个顾客的到达时间
 
-  t = s;
+  t <- s;
   while (1) {
-    t = t - log(runif(1)) / lamda
+    t <- t - log(runif(1)) / lamda
     if (runif(1) <= g(t) / lamda) { break }
   }
   return(t)
@@ -205,11 +207,11 @@ mean_time_of_systym <- function(n, T, f, lambda, lambda_1, lambda_2) {
   return(s / n)
 }
 
-T = 10
+T <- 10
 f <- function(t) 3 + 4 / (1 + t)
 lambda <- 4
 lambda_1 <- 4
 lambda_2 <- 3
-n <- 100
+n <- 10000
 mean_time <- mean_time_of_systym(n, T, f, lambda, lambda_1, lambda_2)
 mean_time
