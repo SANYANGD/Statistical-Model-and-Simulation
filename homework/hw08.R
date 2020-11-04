@@ -23,12 +23,13 @@ g <- function(x) {
   return(2 * x)
 }
 
+
 ts <- function(lamda, g, s) {
   #g(t)表示强度函数（随时间变化）
   #lamda表示g(t)的最大值
   #该子程序用来产生时刻s后第一个顾客的到达时间
 
-  t <- s;
+  t <- s
   while (1) {
     t <- t - log(runif(1)) / lamda
     if (runif(1) <= g(t) / lamda) { break }
@@ -193,6 +194,7 @@ two_severs_parallel_queue <- function(T, f, lambda, lambda_1, lambda_2) {
   return(mylist)
 }
 
+
 #对并联的双服务台的排队系统模拟n次后得到的一个人在系统中逗留的平均时间
 mean_time_of_systym <- function(n, T, f, lambda, lambda_1, lambda_2) {
   s <- 0
@@ -204,14 +206,20 @@ mean_time_of_systym <- function(n, T, f, lambda, lambda_1, lambda_2) {
     s <- meantime * num + s
     n <- n + num
   }
-  return(s / n)
+  sever1_num <- x$sever_1_num
+  sever2_num <- x$sever_2_num
+  result <- list(mean_time = s / n, sever_1_num = sever1_num, sever_2_num = sever2_num)
+  return(result)
 }
 
+
+
 T <- 10
-f <- function(t) 3 + 4 / (1 + t)
 lambda <- 4
 lambda_1 <- 4
 lambda_2 <- 3
 n <- 10000
-mean_time <- mean_time_of_systym(n, T, f, lambda, lambda_1, lambda_2)
-mean_time
+result <- mean_time_of_systym(n, T, g, lambda, lambda_1, lambda_2)
+result$mean_time #顾客平均逗留时间
+result$sever_1_num #为第1个服务台服务的人数
+result$sever_2_num #为第2个服务台服务的人数
