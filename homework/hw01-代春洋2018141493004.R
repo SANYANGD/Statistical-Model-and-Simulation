@@ -22,7 +22,7 @@ g <- function(x){
 #顾客到来的函数
 #这个函数用来生成时刻s之后第一个顾客到达 的时间
 Arrival <- function(lamda, g, s){
-  t <- s;
+  t <- s
   while (1){
     t <- t - log(runif(1)) / lamda
     if (runif(1) <= g(t) / lamda) {
@@ -34,7 +34,7 @@ Arrival <- function(lamda, g, s){
 
 
 sold <- function() {
-  sold <- 0;
+  sold <- 0
   random <- runif(1)
   if (random < purchaseRto[1]){
     sold <- 1
@@ -52,7 +52,7 @@ sold <- function() {
 }
 
 
-method <- function(){
+count() <- function(){
   #计数变量
   t <- 0   #时间变量
   C <- 0  #t时刻订购话费的总和
@@ -65,9 +65,9 @@ method <- function(){
   t1 <- Inf   #下一批订单到达的时间
 
   #开始进行模拟
-  while (1) {
+  while (t <= 30) {
     if (t0 < t1){
-      D <- sold();    #顾客需求量
+      D <- sold()    #顾客需求量
       H <- H + (t0 - t) * SS[1] * storePrice
       w <- min(D, SS[1])
       R <- R + w * salePrice
@@ -78,8 +78,7 @@ method <- function(){
         SS[2] <- Ss[2] - SS[1]
         t1 <- t + transDelay
       }
-    }
-    else if (t0 >= t1){
+    }else if (t0 >= t1){
       H <- H + (t1 - t) * SS[1] * storePrice
       t <- t1
       C <- C + buyPrice * SS[2] + transPrice
@@ -87,10 +86,8 @@ method <- function(){
       SS[2] <- 0
       t1 <- Inf
     }
-    if (t > 30){
-      break;
-    }
   }
+
   return(R - H - C)
 }
 
@@ -98,7 +95,7 @@ method <- function(){
 
 Sum <- 0
 for (i in 1:1000){
-  Sum <- Sum + method()
+  Sum <- Sum + count()
 }
 result <- Sum / 1000
 result
