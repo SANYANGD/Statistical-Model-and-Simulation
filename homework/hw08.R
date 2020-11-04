@@ -4,6 +4,7 @@
 # Created on: 2020/11/4
 
 # https://zhuanlan.zhihu.com/p/29007545
+# 双服务员的排队系统
 
 #ts <- function(lambda, g, s) {
 #  t <- s
