@@ -52,7 +52,7 @@ sold <- function() {
 }
 
 
-count() <- function(){
+countpro <- function(){
   #计数变量
   t <- 0   #时间变量
   C <- 0  #t时刻订购话费的总和
@@ -93,10 +93,10 @@ count() <- function(){
 
 
 
-Sum <- 0
+sum <- 0
 for (i in 1:1000){
-  Sum <- Sum + count()
+  sum <- sum + countpro()
 }
-result <- Sum / 1000
+result <- sum / 1000
 result
 
