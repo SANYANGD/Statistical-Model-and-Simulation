@@ -3,21 +3,20 @@
 # Created by: 代春洋2018141493004
 # Created on: 2020/11/4
 
-#编程当中遇到的问题
-#1. 当代码当中出现error没有解决的化，可能出现无法自动提示代码的情况
-#2. 访问向量Name[i]
 
-#题目当中给出的信息变量
-cusLamda <- 8  #每天到来的速率为8
-purchaseRto <- c(0.7, 0.7, 0.08, 0.02) # 购买量服从分布
-#  a    1       2       3       4
-#  P  0.7       0.2   0.08      0.02
+cusLamda <- 8
+purchaseRto <- c(0.7, 0.7, 0.08, 0.02)
 buyPrice <- 5
 storePrice <- 0.5
 transPrice <- 10
 transDelay <- 1
 salePrice <- 12
-Ss <- c(10, 120)  # 存储策略  s<-10 S <-120
+Ss <- c(10, 120)
+
+
+g <- function(x){
+  return(2 * x)
+}
 
 
 #顾客到来的函数
@@ -33,27 +32,23 @@ Arrival <- function(lamda, g, s){
   return(t)
 }
 
-g <- function(x){
-  return(2 * x)
-}
 
-#生成顾客的需求量
-demand <- function() {
-  demand <- 0;
+sold <- function() {
+  sold <- 0;
   random <- runif(1)
   if (random < purchaseRto[1]){
-    demand <- 1
+    sold <- 1
   }
   else if (random < purchaseRto[1] + purchaseRto[2]){
-    demand <- 2
+    sold <- 2
   }
   else if (random < 1 - purchaseRto[4]){
-    demand <- 3
+    sold <- 3
   }
   else if (random <= 1){
-    demand <- 4
+    sold <- 4
   }
-  return(demand)
+  return(sold)
 }
 
 
@@ -72,7 +67,7 @@ method <- function(){
   #开始进行模拟
   while (1) {
     if (t0 < t1){
-      D <- demand();    #顾客需求量
+      D <- sold();    #顾客需求量
       H <- H + (t0 - t) * SS[1] * storePrice
       w <- min(D, SS[1])
       R <- R + w * salePrice
@@ -98,6 +93,8 @@ method <- function(){
   }
   return(R - H - C)
 }
+
+
 
 Sum <- 0
 for (i in 1:1000){
