@@ -3,6 +3,21 @@
 # Created by: 代春洋
 # Created on: 2020/11/4
 
+# https://zhuanlan.zhihu.com/p/29007545
+# 双服务员的排队系统
+
+#ts <- function(lambda, g, s) {
+#  t <- s
+#  u <- runif(1)
+#  t <- t - log(u) / lambda
+#  u1 <- runif(1)
+#  while (u1 > g(t) / lambda) {
+#    u <- runif(1)
+#    t <- t - log(u) / lambda
+#    u1 <- runif(1)
+#  }
+#  t
+#}
 
 #题目当中给出的信息变量
 cusLamda <- 8
