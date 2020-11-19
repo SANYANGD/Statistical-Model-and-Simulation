@@ -1,11 +1,14 @@
-# Title     : TODO
-# Objective : TODO
-# Created by: SCDX
+# Title     : 控制变量法
+# Objective :
+# Created by: 代春洋
 # Created on: 2020/11/18
 
-U = runif(100000)
-T1 = exp(-U) / (1 + U^2)
-T2 = T1 - cov(exp(-0.5) / (1 + U^2), exp(-U) / (1 + U^2)) / var(exp(-0.5) / (1 + U^2)) * (exp(-0.5) / (1 + U^2) - mean(exp(-0.5) / (1 + U^2)))
-c(mean(T1), mean(T2))
-c(var(T1), var(T2))
-(var(T1) - var(T2)) / var(T1)
+u <- runif(100000)
+
+m1 <- exp(-u) / (1 + u^2)
+m2 <- m1 - cov(exp(-0.5) / (1 + u^2),
+              exp(-u) / (1 + u^2)) / var(exp(-0.5) / (1 + u^2)) * (exp(-0.5) / (1 + u^2) - mean(exp(-0.5) / (1 + u^2)))
+
+c(mean(m1), mean(m2))
+c(var(m1), var(m2))
+(var(m1) - var(m2)) / var(m1)
