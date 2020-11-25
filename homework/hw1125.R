@@ -26,7 +26,7 @@ var_crude # 正常抽样方差
 
 
 # 重要抽样
-result <- c()
+r <- c()
 for(i in 1:10000) {
   u <- rbinom(prob=0.8,n=1,size=20)
   if(U1>=16) {
