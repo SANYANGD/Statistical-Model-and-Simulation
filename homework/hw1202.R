@@ -15,10 +15,10 @@ F <- function(x) {
 D <- function(data, n) {
   t <- c()
   for (j in 1:n) {
-    t <- c(temp, j / n - (F(data[j])))
-    t <- c(temp, (F(data[j])) - (j - 1) / n)
+    t <- c(t, j / n - (F(data[j])))
+    t <- c(t, (F(data[j])) - (j - 1) / n)
   }
-  return(max(temp))
+  return(max(t))
 
 }
 
